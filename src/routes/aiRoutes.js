@@ -5,7 +5,7 @@ const router = express.Router();
 // Khởi tạo multer
 const upload = multer({ dest: 'uploads/' }); // Cấu hình để lưu file vào thư mục 'uploads'
 
-// Import controller của bạn
+// Import controller 
 const { createAnAnswerController } = require('../controllers/aiController');
 
 // Định nghĩa route
