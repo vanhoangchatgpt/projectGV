@@ -1,7 +1,14 @@
 const express = require('express');
-const {createAnAnswerController} = require('../controllers/aiController');
-const routerAPI = express.Router();
+const multer = require('multer');
+const router = express.Router();
 
-routerAPI.post("/generate-answer", createAnAnswerController);
+// Khởi tạo multer
+const upload = multer({ dest: 'uploads/' }); // Cấu hình để lưu file vào thư mục 'uploads'
 
-module.exports = routerAPI;                      
+// Import controller của bạn
+const { createAnAnswerController } = require('../controllers/aiController');
+
+// Định nghĩa route
+router.post('/create-answer', upload.single('file'), createAnAnswerController);
+
+module.exports = router;

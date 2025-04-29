@@ -1,6 +1,10 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const path = require('path');
 const connection = require('./config/database');
+
 const aiRouters = require('./routes/aiRoutes');
 
 const app = express();
